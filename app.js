@@ -1,5 +1,10 @@
-angular.module('MyReddit', []).controller('MainCtrl', ['$scope', function($scope){
-  $scope.test ='Hello world!';
+angular.module('MyReddit', []).factory('posts', [function(){
+  var o = {
+    posts: []
+  };
+  return o;
+}]);
+angular.module('MyReddit', []).controller('MainCtrl', ['$scope', 'posts',function($scope, posts){
   $scope.posts = [
     {title: 'post 1', upvotes: 5},
     {title: 'post 2', upvotes: 2},
